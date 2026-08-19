@@ -245,9 +245,26 @@ async function initContent() {
   renderAviso(aviso || FALLBACK.aviso)
 }
 
+// URL base do conteúdo no GitHub (via CDN jsDelivr).
+// Assim o site publicado no cPanel sempre lê o conteúdo mais recente
+// gravado pelo Decap CMS, sem precisar de deploy no próprio cPanel.
+const CDN_BASE = "https://cdn.jsdelivr.net/gh/rilkcesar/instituto-santa-maria@main"
+
 async function fetchJSON(path) {
+  // 1. CDN do GitHub (conteúdo atualizado via CMS)
+  const remoto = await tryFetchJSON(`${CDN_BASE}/${path}`)
+  if (remoto) return remoto
+
+  // 2. Arquivo local (fallback, caso esteja no mesmo servidor)
+  const local = await tryFetchJSON(path)
+  if (local) return local
+
+  return null
+}
+
+async function tryFetchJSON(url) {
   try {
-    const res = await fetch(path, { cache: "no-cache" })
+    const res = await fetch(url, { cache: "no-cache" })
     if (!res.ok) return null
     return await res.json()
   } catch {
