@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Instituto de Educação Santa Maria — Ensino Fundamental e Médio. Educação de excelência que transforma vidas." />
+  <meta name="theme-color" content="#d72b30" />
+  <title>Instituto de Educação Santa Maria</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== Aviso (editável via CMS) ===== -->
+  <div class="aviso" id="avisoBanner" hidden></div>
+
+  <!-- ===== Top bar ===== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__items">
+        <span class="topbar__item">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (37) 3523-1502
+        </span>
+        <span class="topbar__item topbar__item--hide">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          contato@santamaria.edu.br
+        </span>
+      </div>
+      <div class="topbar__items">
+        <span class="topbar__item topbar__item--hide">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Rua Padre João Porto, 120 — Centro - Pompéu MG
+        </span>
+        <a class="topbar__link" href="#" aria-label="Facebook">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a class="topbar__link" href="#" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Header / Nav ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="brand">
+        <span class="brand__emblem" aria-hidden="true">
+          <img src="assets/logo-santa-maria.jpg" alt="" />
+        </span>
+        <span class="brand__text">
+          <strong>Instituto Santa Maria</strong>
+          <small>Educação Fundamental e Médio</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="nav__link is-active">Início</a>
+        <a href="#sobre" class="nav__link">Sobre</a>
+        <a href="#ensino" class="nav__link">Ensino</a>
+        <a href="#diferenciais" class="nav__link">Diferenciais</a>
+        <a href="#noticias" class="nav__link">Notícias</a>
+        <a href="#contato" class="nav__link">Contato</a>
+        <a href="#matricula" class="btn btn--primary nav__cta">Matrículas 2026</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <span class="chip">
+            <span class="chip__dot"></span> Matrículas abertas para 2026
+          </span>
+          <h1 class="hero__title">Educação que <em>transforma</em> vidas, do primeiro ao último ano.</h1>
+          <p class="hero__subtitle">
+            Há mais de 40 anos formando estudantes do Ensino Fundamental e Médio com
+            excelência acadêmica, valores humanos e uma comunidade acolhedora.
+          </p>
+          <div class="hero__actions">
+            <a href="#matricula" class="btn btn--primary btn--lg">Agende uma visita</a>
+            <a href="#ensino" class="btn btn--ghost btn--lg">Conheça o ensino
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hero__trust">
+            <div class="hero__avatars" aria-hidden="true">
+              <span style="--i:#f59e0b">A</span><span style="--i:#10b981">B</span><span style="--i:#3b82f6">C</span><span style="--i:#ec4899">D</span>
+            </div>
+            <p><strong>+1.200 famílias</strong> confiam na nossa escola</p>
+          </div>
+        </div>
+
+        <div class="hero__art reveal">
+          <div class="hero__card hero__card--main">
+            <div class="hero__card-top">
+              <span class="hero__tag">Fundamental</span>
+              <span class="hero__tag">Médio</span>
+            </div>
+            <svg viewBox="0 0 360 260" fill="none" class="hero__illustration">
+              <rect x="40" y="40" width="120" height="180" rx="14" fill="#ffffff" opacity="0.08"/>
+              <rect x="130" y="70" width="120" height="180" rx="14" fill="#ffffff" opacity="0.16"/>
+              <rect x="220" y="30" width="100" height="150" rx="14" fill="#ffffff" opacity="0.24"/>
+              <path d="M60 160c10-30 26-46 48-46s38 16 48 46M70 130c8 8 18 12 30 12" stroke="#d4a53a" stroke-width="5" stroke-linecap="round"/>
+              <path d="M150 190c10-30 26-46 48-46s38 16 48 46" stroke="#d4a53a" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="330" cy="120" r="22" fill="#d4a53a"/>
+              <path d="m330 108 2.6 5.4 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8 2.6-5.4Z" fill="#d72b30"/>
+            </svg>
+            <div class="hero__card-stat">
+              <strong>98%</strong>
+              <span>aprovação nos vestibulares</span>
+            </div>
+          </div>
+          <div class="hero__float hero__float--a">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <div><strong>+30</strong><span>atividades extracurriculares</span></div>
+          </div>
+          <div class="hero__float hero__float--b">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <div><strong>12</strong><span>premiações em olimpíadas</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Stats ===== -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat reveal">
+            <span class="stat__num" data-count="40" data-suffix="+">0</span>
+            <span class="stat__label">anos de história</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="1200" data-suffix="+">0</span>
+            <span class="stat__label">alunos matriculados</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="150" data-suffix="+">0</span>
+            <span class="stat__label">professores dedicados</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat__num" data-count="98" data-suffix="%">0</span>
+            <span class="stat__label">de aprovação</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Sobre ===== -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="split">
+          <div class="split__media reveal">
+            <div class="frame">
+              <div class="frame__content frame__content--about">
+                <span class="frame__badge">Desde 1984</span>
+                <h3 class="frame__title">Nossa missão</h3>
+                <p>Formar cidadãos íntegros, curiosos e preparados para os desafios do mundo, unindo tradição e inovação.</p>
+              </div>
+            </div>
+          </div>
+          <div class="split__body reveal">
+            <span class="kicker">Sobre o Instituto</span>
+            <h2 class="section__title">Uma escola que enxerga cada aluno como único.</h2>
+            <p class="section__lead">
+              No Instituto de Educação Santa Maria, acreditamos que a educação vai além do conteúdo:
+              é sobre formar pessoas. Por isso, unimos um currículo sólido a um acompanhamento
+              individualizado, do Ensino Fundamental ao Médio.
+            </p>
+            <ul class="checklist">
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                Acompanhamento pedagógico próximo a cada família
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                Infraestrutura moderna: laboratórios, biblioteca e quadras
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                Formação socioemocional integrada ao dia a dia
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                Programa bilíngue e tecnologia em sala de aula
+              </li>
+            </ul>
+            <a href="#contato" class="btn btn--secondary">Fale com a coordenação</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ensino ===== -->
+    <section class="section section--tinted" id="ensino">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Nossas etapas</span>
+          <h2 class="section__title">Um percurso completo de aprendizado.</h2>
+          <p class="section__lead">Cada etapa pensada para a idade, o desenvolvimento e os sonhos de cada estudante.</p>
+        </div>
+
+        <div class="levels">
+          <article class="level reveal">
+            <span class="level__num">01</span>
+            <div class="level__icon" style="--c:#d72b30">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.6V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.4"/><path d="M22 8v5"/></svg>
+            </div>
+            <h3 class="level__title">Fundamental I</h3>
+            <p class="level__sub">1º ao 5º ano</p>
+            <p class="level__text">Alfabetização lúdica, pensamento matemático e descoberta do mundo com base sólida em valores e autonomia.</p>
+          </article>
+
+          <article class="level reveal">
+            <span class="level__num">02</span>
+            <div class="level__icon" style="--c:#d4a53a">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M12 2v2"/></svg>
+            </div>
+            <h3 class="level__title">Fundamental II</h3>
+            <p class="level__sub">6º ao 9º ano</p>
+            <p class="level__text">Aprofundamento das disciplinas, projetos de pesquisa, iniciação científica e fortalecimento da autonomia.</p>
+          </article>
+
+          <article class="level reveal">
+            <span class="level__num">03</span>
+            <div class="level__icon" style="--c:#b3541e">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg>
+            </div>
+            <h3 class="level__title">Ensino Médio</h3>
+            <p class="level__sub">1º ao 3º ano</p>
+            <p class="level__text">Preparação para o ENEM e vestibulares com itinerários formativos, orientação vocacional e simulados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Diferenciais ===== -->
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Por que nos escolher</span>
+          <h2 class="section__title">O que nos torna diferentes.</h2>
+        </div>
+
+        <div class="features">
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h3>Metodologia ativa</h3>
+            <p>O aluno é protagonista. Aprendizagem por projetos, resolução de problemas e colaboração em sala.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+            <h3>Programa bilíngue</h3>
+            <p>Inglês diário desde os primeiros anos, com imersão e certificações internacionais.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35"/><path d="M12 2 2 8l10 6L22 8l-10-6Z"/><path d="M6 12v5"/></svg></div>
+            <h3>Tecnologia &amp; Robótica</h3>
+            <p>Laboratórios maker, robótica educacional e cultura digital aplicada ao currículo.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg></div>
+            <h3>Artes &amp; Esportes</h3>
+            <p>Música, teatro, futsal, vôlei e natação para o desenvolvimento completo do estudante.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+            <h3>Segurança e acolhimento</h3>
+            <p>Ambiente protegido, com equipe psicopedagógica e cultura de respeito e empatia.</p>
+          </div>
+          <div class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>Parceria com a família</h3>
+            <p>Comunicação constante, reuniões periódicas e portal do aluno para acompanhar o progresso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Notícias ===== -->
+    <section class="section section--tinted" id="noticias">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Acontece no Instituto</span>
+          <h2 class="section__title">Notícias e eventos.</h2>
+        </div>
+
+        <div class="news" id="newsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Depoimentos ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="kicker">Depoimentos</span>
+          <h2 class="section__title">Quem vive o Santa Maria, recomenda.</h2>
+        </div>
+
+        <div class="quotes" id="depoimentosGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== Matrícula CTA ===== -->
+    <section class="cta" id="matricula">
+      <div class="container cta__inner reveal">
+        <div class="cta__content">
+          <span class="kicker kicker--light">Matrículas 2026</span>
+          <h2 class="cta__title">Garanta a vaga do seu filho para o próximo ano letivo.</h2>
+          <p class="cta__text">Turmas limitadas. Agende uma visita guiada e conheça nossa estrutura de perto.</p>
+        </div>
+        <div class="cta__actions">
+          <a href="#contato" class="btn btn--light btn--lg">Agendar visita</a>
+          <a href="tel:1140028922" class="btn btn--outline-light btn--lg">Ligar agora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contato ===== -->
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact">
+          <div class="contact__info reveal">
+            <span class="kicker">Contato</span>
+            <h2 class="section__title">Vamos conversar?</h2>
+            <p class="section__lead">Tire suas dúvidas, agende uma visita ou solicite a ficha de matrícula.</p>
+
+            <ul class="contact__list">
+              <li>
+                <div class="contact__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <div><strong>Endereço</strong><span>Rua das Acácias, 120 — Centro</span></div>
+              </li>
+              <li>
+                <div class="contact__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                <div><strong>Telefone</strong><span>(11) 4002-8922</span></div>
+              </li>
+              <li>
+                <div class="contact__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                <div><strong>E-mail</strong><span>contato@santamaria.edu.br</span></div>
+              </li>
+              <li>
+                <div class="contact__icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                <div><strong>Horário</strong><span>Seg a Sex, das 7h às 18h</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact__form reveal" id="contactForm" novalidate>
+            <div class="field">
+              <label for="nome">Nome completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="voce@email.com" required />
+              </div>
+              <div class="field">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="interesse">Tenho interesse em</label>
+              <select id="interesse" name="interesse">
+                <option value="fund1">Ensino Fundamental I</option>
+                <option value="fund2">Ensino Fundamental II</option>
+                <option value="medio">Ensino Médio</option>
+                <option value="visita">Agendar visita</option>
+                <option value="outro">Outro assunto</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+            <p class="form__msg" id="formMsg" role="status"></p>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#inicio" class="brand brand--light">
+            <span class="brand__emblem" aria-hidden="true">
+              <img src="assets/logo-santa-maria.jpg" alt="" />
+            </span>
+            <span class="brand__text">
+              <strong>Instituto Santa Maria</strong>
+              <small>Educação Fundamental e Médio</small>
+            </span>
+          </a>
+          <p class="footer__about">Há mais de 40 anos educando com excelência, valores e acolhimento. Uma escola que prepara para a vida.</p>
+        </div>
+
+        <nav class="footer__col">
+          <h4>Navegação</h4>
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#ensino">Ensino</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="#noticias">Notícias</a>
+        </nav>
+
+        <div class="footer__col">
+          <h4>Contato</h4>
+          <a href="tel:1140028922">(11) 4002-8922</a>
+          <a href="mailto:contato@santamaria.edu.br">contato@santamaria.edu.br</a>
+          <a href="#">Rua das Acácias, 120 — Centro</a>
+          <a href="#contato">Agendar visita</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Institucional</h4>
+          <a href="#">Portal do aluno</a>
+          <a href="#">Portal do professor</a>
+          <a href="#">Trabalhe conosco</a>
+          <a href="#">Política de privacidade</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year"></span> Instituto de Educação Santa Maria. Todos os direitos reservados.</p>
+        <p class="footer__made">Feito com dedicação para nossa comunidade.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="backtop" id="backTop" aria-label="Voltar ao topo">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

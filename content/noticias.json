@@ -1,0 +1,25 @@
+{
+  "noticias": [
+    {
+      "titulo": "Alunos conquistam 6 medalhas na OBMEP 2026",
+      "data": "2026-08-14",
+      "categoria": "Olimpíadas",
+      "resumo": "Nossa equipe de matemática brilhou mais uma vez com o melhor resultado da história do Instituto.",
+      "link": ""
+    },
+    {
+      "titulo": "Feira de Ciências reúne famílias e projetos inovadores",
+      "data": "2026-08-02",
+      "categoria": "Eventos",
+      "resumo": "Mais de 80 projetos apresentados por estudantes do Fundamental II e Ensino Médio.",
+      "link": ""
+    },
+    {
+      "titulo": "Campanha do agasalho entrega 400 peças a instituições",
+      "data": "2026-07-20",
+      "categoria": "Comunidade",
+      "resumo": "Alunos do grêmio estudantil lideraram a arrecadação solidária deste ano.",
+      "link": ""
+    }
+  ]
+}

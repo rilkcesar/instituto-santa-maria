@@ -1,0 +1,75 @@
+# ============================================================
+# Decap CMS — Instituto de Educação Santa Maria
+# Painel disponível em /admin
+# ============================================================
+
+backend:
+  name: github
+  repo: rilkcesar/instituto-santa-maria
+  branch: main
+
+# Arquivos de mídia enviados pelo painel
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "https://instituto-santa-maria.netlify.app"
+display_url: "https://instituto-santa-maria.netlify.app"
+logo_url: "/assets/logo-santa-maria.jpg"
+locale: "pt"
+show_preview_links: true
+
+collections:
+  # ---------- Notícias e Eventos ----------
+  - name: "noticias"
+    label: "Notícias e Eventos"
+    icon: "public"
+    files:
+      - name: "noticias"
+        label: "Notícias"
+        file: "content/noticias.json"
+        fields:
+          - name: "noticias"
+            label: "Notícias"
+            widget: "list"
+            summary: "{{fields.titulo}}"
+            fields:
+              - { label: "Título", name: "titulo", widget: "string" }
+              - { label: "Data", name: "data", widget: "date" }
+              - label: "Categoria"
+                name: "categoria"
+                widget: "select"
+                options: ["Olimpíadas", "Eventos", "Comunidade", "Esportes", "Cultura", "Formaturas"]
+              - { label: "Resumo", name: "resumo", widget: "text" }
+              - { label: "Link (opcional)", name: "link", widget: "string", required: false }
+
+  # ---------- Depoimentos ----------
+  - name: "depoimentos"
+    label: "Depoimentos"
+    files:
+      - name: "depoimentos"
+        label: "Depoimentos"
+        file: "content/depoimentos.json"
+        fields:
+          - name: "depoimentos"
+            label: "Depoimentos"
+            widget: "list"
+            summary: "{{fields.nome}}"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "string", hint: "Ex.: Mãe de aluno do 3º ano" }
+              - { label: "Texto", name: "texto", widget: "text" }
+              - { label: "Iniciais", name: "iniciais", widget: "string", hint: "2 letras exibidas no avatar" }
+              - { label: "Cor do avatar", name: "cor", widget: "color", default: "#7c3aed" }
+
+  # ---------- Aviso / Banner ----------
+  - name: "aviso"
+    label: "Aviso / Banner"
+    files:
+      - name: "aviso"
+        label: "Aviso do topo"
+        file: "content/aviso.json"
+        fields:
+          - { label: "Exibir aviso", name: "ativo", widget: "boolean", default: true }
+          - { label: "Texto", name: "texto", widget: "string" }
+          - { label: "Link (opcional)", name: "link", widget: "string", required: false }
+          - { label: "Texto do botão", name: "linkTexto", widget: "string", required: false }
