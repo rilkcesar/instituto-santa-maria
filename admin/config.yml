@@ -12,8 +12,8 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-site_url: "https://instituto-santa-maria.netlify.app"
-display_url: "https://instituto-santa-maria.netlify.app"
+site_url: "https://sta.kerberos.com.br"
+display_url: "https://sta.kerberos.com.br"
 logo_url: "/assets/logo-santa-maria.jpg"
 locale: "pt"
 show_preview_links: true
