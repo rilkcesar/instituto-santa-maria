@@ -4,8 +4,7 @@
 # ============================================================
 
 backend:
-  name: github
-  repo: rilkcesar/instituto-santa-maria
+  name: git-gateway
   branch: main
 
 # Arquivos de mídia enviados pelo painel
