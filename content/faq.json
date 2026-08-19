@@ -1,0 +1,24 @@
+{
+  "faq": [
+    {
+      "pergunta": "Quando abrem as matrículas para 2026?",
+      "resposta": "As matrículas abrem em outubro. Acompanhe nosso site e redes sociais para não perder as datas."
+    },
+    {
+      "pergunta": "Quais documentos são necessários?",
+      "resposta": "Certidão de nascimento, histórico escolar, comprovante de residência e documento do responsável."
+    },
+    {
+      "pergunta": "Quais são as formas de pagamento?",
+      "resposta": "À vista com desconto ou parcelado. Consulte as condições na secretaria."
+    },
+    {
+      "pergunta": "Há transporte escolar?",
+      "resposta": "Sim, trabalhamos com parceiros de transporte escolar. Consulte as rotas disponíveis."
+    },
+    {
+      "pergunta": "A escola oferece bolsas?",
+      "resposta": "Sim, há bolsas por critérios socioeconômicos e de desempenho. Consulte a secretaria."
+    }
+  ]
+}

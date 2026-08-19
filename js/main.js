@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm()
   initActiveNav()
   initModal()
+  initLightbox()
   initContent()
   document.getElementById("year").textContent = new Date().getFullYear()
 })
@@ -220,7 +221,22 @@ const FALLBACK = {
     texto: "Matrículas abertas para 2026 — turmas limitadas!",
     link: "#contato",
     linkTexto: "Agendar visita"
-  }
+  },
+  resultados: {
+    aprovacao: "98%",
+    notaEnem: "720",
+    medalhas: "45",
+    formados: "3.500",
+    faculdades: ["USP", "UFMG", "Unicamp", "PUC Minas", "UFV", "UFLA", "UFSJ", "UFOP"]
+  },
+  faq: [
+    { pergunta: "Quando abrem as matrículas para 2026?", resposta: "As matrículas abrem em outubro. Acompanhe nosso site e redes sociais para não perder as datas." },
+    { pergunta: "Quais documentos são necessários?", resposta: "Certidão de nascimento, histórico escolar, comprovante de residência e documento do responsável." },
+    { pergunta: "Quais são as formas de pagamento?", resposta: "À vista com desconto ou parcelado. Consulte as condições na secretaria." },
+    { pergunta: "Há transporte escolar?", resposta: "Sim, trabalhamos com parceiros de transporte escolar. Consulte as rotas disponíveis." },
+    { pergunta: "A escola oferece bolsas?", resposta: "Sim, há bolsas por critérios socioeconômicos e de desempenho. Consulte a secretaria." }
+  ],
+  galeria: { fotos: [] }
 }
 
 const QUOTE_MARK_SVG =
@@ -235,15 +251,21 @@ const MESES = [
 ]
 
 async function initContent() {
-  const [noticias, depoimentos, aviso] = await Promise.all([
+  const [noticias, depoimentos, aviso, resultados, faq, galeria] = await Promise.all([
     fetchJSON("content/noticias.json"),
     fetchJSON("content/depoimentos.json"),
-    fetchJSON("content/aviso.json")
+    fetchJSON("content/aviso.json"),
+    fetchJSON("content/resultados.json"),
+    fetchJSON("content/faq.json"),
+    fetchJSON("content/galeria.json")
   ])
 
   renderNoticias((noticias && noticias.noticias) || FALLBACK.noticias)
   renderDepoimentos((depoimentos && depoimentos.depoimentos) || FALLBACK.depoimentos)
   renderAviso(aviso || FALLBACK.aviso)
+  renderResultados(resultados || FALLBACK.resultados)
+  renderFaq((faq && faq.faq) || FALLBACK.faq)
+  renderGaleria((galeria && galeria.fotos) || FALLBACK.galeria.fotos)
 }
 
 // URL base do conteúdo no GitHub (raw).
@@ -404,4 +426,128 @@ function renderAviso(aviso) {
   el.querySelector(".aviso__close").addEventListener("click", () => {
     el.hidden = true
   })
+}
+
+function renderResultados(r) {
+  const el = document.getElementById("resultsGrid")
+  if (!el || !r) return
+
+  const numeros = [
+    { valor: r.aprovacao, label: "de aprovação nos vestibulares" },
+    { valor: r.notaEnem, label: "nota média no ENEM" },
+    { valor: r.medalhas, label: "medalhas em olimpíadas" },
+    { valor: r.formados, label: "alunos formados" }
+  ].filter((n) => n.valor)
+
+  const faculdades = (r.faculdades || []).map((f) => String(f).trim()).filter(Boolean)
+
+  el.innerHTML = `
+    <div class="results__stats">
+      ${numeros.map((n) => `
+        <div class="results__stat">
+          <span class="results__valor">${escapeHtml(n.valor)}</span>
+          <span class="results__label">${escapeHtml(n.label)}</span>
+        </div>`).join("")}
+    </div>
+    ${faculdades.length ? `
+    <div class="results__facs">
+      <p class="results__facs-titulo">Aprovações em destaque</p>
+      <div class="results__facs-list">
+        ${faculdades.map((f) => `<span class="results__fac">${escapeHtml(f)}</span>`).join("")}
+      </div>
+    </div>` : ""}`
+}
+
+function renderFaq(lista) {
+  const el = document.getElementById("faqList")
+  if (!el) return
+
+  if (!lista || !lista.length) {
+    el.innerHTML = `<p class="faq__vazio">Em breve, as perguntas frequentes.</p>`
+    return
+  }
+
+  el.innerHTML = lista.map((item, i) => `
+    <div class="faq__item">
+      <button type="button" class="faq__q" data-faq-index="${i}" aria-expanded="false">
+        <span>${escapeHtml(item.pergunta)}</span>
+        <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq__a" hidden>${escapeHtml(item.resposta)}</div>
+    </div>`).join("")
+
+  el.querySelectorAll(".faq__q").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const resposta = btn.parentElement.querySelector(".faq__a")
+      const aberto = !resposta.hidden
+      el.querySelectorAll(".faq__a").forEach((a) => { a.hidden = true })
+      el.querySelectorAll(".faq__q").forEach((b) => {
+        b.setAttribute("aria-expanded", "false")
+        b.classList.remove("is-open")
+      })
+      if (!aberto) {
+        resposta.hidden = false
+        btn.setAttribute("aria-expanded", "true")
+        btn.classList.add("is-open")
+      }
+    })
+  })
+}
+
+function renderGaleria(fotos) {
+  const el = document.getElementById("galeriaGrid")
+  if (!el) return
+
+  if (!fotos || !fotos.length) {
+    el.innerHTML = `
+      <div class="galeria__vazio">
+        <p>Fotos em breve. Acompanhe nosso Instagram
+          <a href="https://instagram.com/institutodeeducacaosantamaria" target="_blank" rel="noopener">@institutodeeducacaosantamaria</a>.
+        </p>
+      </div>`
+    return
+  }
+
+  el.innerHTML = fotos.map((f) => `
+    <button type="button" class="galeria__item" data-foto="${escapeHtml(f.imagem)}" data-legenda="${escapeHtml(f.legenda || "")}">
+      <img src="${escapeHtml(f.imagem)}" alt="${escapeHtml(f.legenda || "Foto da escola")}" loading="lazy" />
+      ${f.legenda ? `<span class="galeria__legenda">${escapeHtml(f.legenda)}</span>` : ""}
+    </button>`).join("")
+
+  el.onclick = (e) => {
+    const btn = e.target.closest("[data-foto]")
+    if (!btn) return
+    abrirLightbox(btn.dataset.foto, btn.dataset.legenda)
+  }
+}
+
+function initLightbox() {
+  const box = document.getElementById("galeriaLightbox")
+  if (!box) return
+  box.querySelector(".lightbox__close").addEventListener("click", fecharLightbox)
+  box.addEventListener("click", (e) => {
+    if (e.target === box) fecharLightbox()
+  })
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !box.hidden) fecharLightbox()
+  })
+}
+
+function abrirLightbox(src, legenda) {
+  const box = document.getElementById("galeriaLightbox")
+  const img = document.getElementById("galeriaLightboxImg")
+  const cap = document.getElementById("galeriaLightboxCaption")
+  if (!box || !img) return
+  img.src = src
+  img.alt = legenda || "Foto da escola"
+  cap.textContent = legenda || ""
+  box.hidden = false
+  document.body.style.overflow = "hidden"
+}
+
+function fecharLightbox() {
+  const box = document.getElementById("galeriaLightbox")
+  if (!box) return
+  box.hidden = true
+  document.body.style.overflow = ""
 }

@@ -73,3 +73,52 @@ collections:
           - { label: "Texto", name: "texto", widget: "string" }
           - { label: "Link (opcional)", name: "link", widget: "string", required: false }
           - { label: "Texto do botão", name: "linkTexto", widget: "string", required: false }
+
+  # ---------- Resultados / Aprovações ----------
+  - name: "resultados"
+    label: "Resultados e Aprovações"
+    files:
+      - name: "resultados"
+        label: "Resultados"
+        file: "content/resultados.json"
+        fields:
+          - { label: "Aprovação (%)", name: "aprovacao", widget: "string", hint: "Ex.: 98%" }
+          - { label: "Nota média no ENEM", name: "notaEnem", widget: "string", hint: "Ex.: 720" }
+          - { label: "Medalhas em olimpíadas", name: "medalhas", widget: "string", hint: "Ex.: 45" }
+          - { label: "Alunos formados", name: "formados", widget: "string", hint: "Ex.: 3.500" }
+          - name: "faculdades"
+            label: "Faculdades onde os alunos passaram"
+            widget: "list"
+            default: []
+
+  # ---------- FAQ ----------
+  - name: "faq"
+    label: "FAQ - Perguntas Frequentes"
+    files:
+      - name: "faq"
+        label: "Perguntas frequentes"
+        file: "content/faq.json"
+        fields:
+          - name: "faq"
+            label: "Perguntas e respostas"
+            widget: "list"
+            summary: "{{fields.pergunta}}"
+            fields:
+              - { label: "Pergunta", name: "pergunta", widget: "string" }
+              - { label: "Resposta", name: "resposta", widget: "text" }
+
+  # ---------- Galeria ----------
+  - name: "galeria"
+    label: "Galeria de Fotos"
+    files:
+      - name: "galeria"
+        label: "Fotos"
+        file: "content/galeria.json"
+        fields:
+          - name: "fotos"
+            label: "Fotos"
+            widget: "list"
+            summary: "{{fields.legenda}}"
+            fields:
+              - { label: "Foto", name: "imagem", widget: "image" }
+              - { label: "Legenda (opcional)", name: "legenda", widget: "string", required: false }
