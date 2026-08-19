@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop()
   initContactForm()
   initActiveNav()
+  initModal()
   initContent()
   document.getElementById("year").textContent = new Date().getFullYear()
 })
@@ -285,14 +286,26 @@ function formatDataPT(iso) {
   return `${dia} de ${MESES[mes - 1]} de ${ano}`
 }
 
+let noticiasAtuais = []
+
 function renderNoticias(lista) {
+  noticiasAtuais = lista
   const grid = document.getElementById("newsGrid")
   if (!grid) return
 
   grid.innerHTML = lista.map((n, i) => {
+    const resumo = (n.resumo || "").trim()
+    const conteudo = (n.conteudo || "").trim()
+    const temLeiaMais = Boolean(conteudo) || resumo.length > 180
+
     const link = n.link
-      ? `<a href="${escapeHtml(n.link)}" class="link">Ler notícia ${LINK_ARROW_SVG}</a>`
+      ? `<a href="${escapeHtml(n.link)}" class="link" target="_blank" rel="noopener">Ler notícia ${LINK_ARROW_SVG}</a>`
       : ""
+
+    const leiaMais = temLeiaMais
+      ? `<button type="button" class="link news__more" data-noticia-index="${i}">Leia mais ${LINK_ARROW_SVG}</button>`
+      : ""
+
     return `
       <article class="news__card reveal is-visible">
         <div class="news__thumb news__thumb--${(i % 3) + 1}">
@@ -301,11 +314,55 @@ function renderNoticias(lista) {
         <div class="news__body">
           <span class="news__date">${formatDataPT(n.data)}</span>
           <h3>${escapeHtml(n.titulo)}</h3>
-          <p>${escapeHtml(n.resumo)}</p>
-          ${link}
+          <p class="news__resumo">${escapeHtml(resumo)}</p>
+          ${leiaMais || link}
         </div>
       </article>`
   }).join("")
+
+  grid.onclick = (e) => {
+    const btn = e.target.closest("[data-noticia-index]")
+    if (!btn) return
+    abrirNoticia(noticiasAtuais[Number(btn.dataset.noticiaIndex)])
+  }
+}
+
+function initModal() {
+  const modal = document.getElementById("noticiaModal")
+  if (!modal) return
+  modal.querySelectorAll("[data-modal-close]").forEach((el) => {
+    el.addEventListener("click", fecharNoticia)
+  })
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) fecharNoticia()
+  })
+}
+
+function abrirNoticia(n) {
+  const modal = document.getElementById("noticiaModal")
+  const body = document.getElementById("noticiaModalBody")
+  if (!modal || !body || !n) return
+
+  const conteudo = (n.conteudo || n.resumo || "").trim()
+  const link = n.link
+    ? `<a class="btn btn--primary" href="${escapeHtml(n.link)}" target="_blank" rel="noopener">Abrir link original</a>`
+    : ""
+
+  body.innerHTML = `
+    <span class="modal__cat">${escapeHtml(n.categoria || "")}</span>
+    <h3 class="modal__titulo">${escapeHtml(n.titulo || "")}</h3>
+    <span class="modal__data">${formatDataPT(n.data)}</span>
+    <div class="modal__texto">${escapeHtml(conteudo)}</div>
+    ${link}`
+  modal.hidden = false
+  document.body.style.overflow = "hidden"
+}
+
+function fecharNoticia() {
+  const modal = document.getElementById("noticiaModal")
+  if (!modal) return
+  modal.hidden = true
+  document.body.style.overflow = ""
 }
 
 function renderDepoimentos(lista) {

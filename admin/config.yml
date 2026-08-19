@@ -39,6 +39,7 @@ collections:
                 widget: "select"
                 options: ["Olimpíadas", "Eventos", "Comunidade", "Esportes", "Cultura", "Formaturas"]
               - { label: "Resumo", name: "resumo", widget: "text" }
+              - { label: "Conteúdo completo (opcional)", name: "conteudo", widget: "text", required: false, hint: "Texto completo exibido ao clicar em 'Leia mais'. Separe os parágrafos com uma linha em branco." }
               - { label: "Link (opcional)", name: "link", widget: "string", required: false }
 
   # ---------- Depoimentos ----------
