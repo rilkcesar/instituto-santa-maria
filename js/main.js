@@ -245,10 +245,10 @@ async function initContent() {
   renderAviso(aviso || FALLBACK.aviso)
 }
 
-// URL base do conteúdo no GitHub (via CDN jsDelivr).
-// Assim o site publicado no cPanel sempre lê o conteúdo mais recente
-// gravado pelo Decap CMS, sem precisar de deploy no próprio cPanel.
-const CDN_BASE = "https://cdn.jsdelivr.net/gh/rilkcesar/instituto-santa-maria@main"
+// URL base do conteúdo no GitHub (raw).
+// O raw tem cache curto (~5 min), então as edições do CMS aparecem
+// publicadas quase na hora, sem depender de purge manual.
+const CDN_BASE = "https://raw.githubusercontent.com/rilkcesar/instituto-santa-maria/main"
 
 async function fetchJSON(path) {
   // 1. CDN do GitHub (conteúdo atualizado via CMS)
