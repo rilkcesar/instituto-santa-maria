@@ -208,12 +208,12 @@ function showFormMessage(text, isError) {
 const FALLBACK = {
   noticias: [
     { titulo: "Alunos conquistam 6 medalhas na OBMEP 2026", data: "2026-08-14", categoria: "Olimpíadas", resumo: "Nossa equipe de matemática brilhou mais uma vez com o melhor resultado da história do Instituto.", link: "" },
-    { titulo: "Feira de Ciências reúne famílias e projetos inovadores", data: "2026-08-02", categoria: "Eventos", resumo: "Mais de 80 projetos apresentados por estudantes do Fundamental II e Ensino Médio.", link: "" },
+    { titulo: "Feira de Ciências reúne famílias e projetos inovadores", data: "2026-08-02", categoria: "Eventos", resumo: "Mais de 80 projetos apresentados por estudantes do Fundamental II e dos cursos técnicos.", link: "" },
     { titulo: "Campanha do agasalho entrega 400 peças a instituições", data: "2026-07-20", categoria: "Comunidade", resumo: "Alunos do grêmio estudantil lideraram a arrecadação solidária deste ano.", link: "" }
   ],
   depoimentos: [
     { nome: "Mariana Alves", descricao: "Mãe de alunos do Fundamental", texto: "Meus dois filhos estudam aqui e a diferença no cuidado com cada aluno é visível. A equipe conhece as crianças pelo nome e a família participa de tudo.", iniciais: "MA", cor: "#7c3aed" },
-    { nome: "Rafael Gomes", descricao: "Ex-aluno, turma de 2024", texto: "Formei aqui no Ensino Médio e entrei em Engenharia na USP. O acompanhamento para o vestibular foi decisivo na minha trajetória.", iniciais: "RG", cor: "#0ea5e9" },
+    { nome: "Rafael Gomes", descricao: "Ex-aluno, turma de 2024", texto: "Fiz o Curso Técnico aqui e a formação foi decisiva para eu entrar no mercado de trabalho.", iniciais: "RG", cor: "#0ea5e9" },
     { nome: "Patrícia Costa", descricao: "Mãe de aluna do 3º ano", texto: "O programa bilíngue e as aulas de robótica foram o que me conquistaram. Minha filha aprende brincando e adora ir para a escola.", iniciais: "PC", cor: "#10b981" }
   ],
   aviso: {
