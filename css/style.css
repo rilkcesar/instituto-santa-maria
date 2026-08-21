@@ -898,3 +898,89 @@ button.link {
   padding: 5px 10px;
 }
 .footer__dev-logo img { height: 22px; width: auto; display: block; }
+
+/* ---------- Selo de parceria no hero ---------- */
+.hero__partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+.hero__partner-label { font-weight: 600; }
+.hero__partner-logo {
+  display: inline-flex;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+}
+.hero__partner-logo img { height: 20px; width: auto; }
+
+/* ---------- Topbar: acesso ---------- */
+.topbar__acesso {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  opacity: 0.9;
+  transition: opacity 0.2s, color 0.2s;
+}
+.topbar__acesso:hover { opacity: 1; color: var(--gold-soft); }
+.topbar__acesso .icon { width: 14px; height: 14px; }
+
+/* ---------- Seção Bernoulli ---------- */
+.bernoulli { max-width: 860px; margin-inline: auto; text-align: center; }
+.bernoulli__head { max-width: 640px; margin: 0 auto 40px; }
+.bernoulli__logo {
+  display: inline-flex;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 18px;
+  margin-bottom: 18px;
+}
+.bernoulli__logo img { height: 34px; width: auto; }
+.bernoulli__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+  text-align: left;
+}
+.bernoulli__item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+}
+.bernoulli__item h3 { color: var(--heading); font-size: 1.05rem; margin: 0 0 8px; }
+.bernoulli__item p { color: var(--muted); margin: 0; font-size: 0.93rem; }
+.bernoulli__acesso {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.bernoulli__acesso h3 { color: var(--heading); font-size: 1rem; margin: 0 0 14px; }
+.bernoulli__links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.bernoulli__link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.bernoulli__link:hover { border-color: var(--red); box-shadow: var(--shadow-sm); }
+.bernoulli__link strong { color: var(--heading); }
+.bernoulli__link span { color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 760px) {
+  .bernoulli__grid { grid-template-columns: 1fr; }
+  .bernoulli__links { grid-template-columns: 1fr; }
+}
